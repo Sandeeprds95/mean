@@ -1,0 +1,58 @@
+<!DOCTYPE>
+<html ng-app="myApp">
+	<head>
+ 		<meta charset='utf-8'>
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="ContactList">
+
+        <!-- Bootstrap Core CSS -->
+        <link rel="stylesheet" href="./plugins/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./plugins/font-awesome/css/font-awesome.min.css">
+        <!-- Custom CSS -->
+        <link rel="stylesheet" type="text/css" href="./stylesheets/custom.css">
+
+        <!-- Scripts -->
+        <script src="./plugins/jquery.min.js"></script>
+        <script src="./plugins/bootstrap/js/bootstrap.min.js"></script>
+
+		<title>Contactlist</title>
+	</head>
+	<body>
+		<div class="container" ng-controller="AppCtrl">
+			<div class="jumbotron">
+				<h1 style="text-align:center">CONTACT ADDRESS BOOK</h1>
+				<table class="table">
+					<thead>
+						<tr style="text-align:center">
+							<th>Name</th>
+							<th>Email ID</th>
+							<th>Phone Number</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><input class="form-control" type="text" ng-model="contact.name"></td>
+							<td><input class="form-control" type="email" ng-model="contact.email"></td>
+							<td><input class="form-control" type="text" ng-model="contact.number"></td>
+						</tr>
+						<tr ng-repeat="contact in contactList">
+							<td>{{contact.name}}</td>
+							<td>{{contact.email}}</td>
+							<td>{{contact.number}}</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="buttons" style="text-align:center">
+					<button type="button" class="btn btn-success" ng-click="addContact()">Add Contact</button>
+					<button type="button" class="btn btn-primary">List Contact</button>
+					<button type="button" class="btn btn-warning">Edit</button>
+					<!-- <button type="button" class="btn btn-warning">Delete</button> -->
+				</div>
+			</div>
+		</div>
+		<!-- Scripts -->
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.2/angular.min.js"></script>
+		<script type="text/javascript" src="controllers/controller.js"></script>
+	</body>
+</html>
