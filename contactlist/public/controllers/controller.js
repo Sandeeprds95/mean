@@ -33,7 +33,6 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
     };
 
     $scope.editContact =  function(id) {
-    	$scope.editBtn = true;
     	console.log(id);
     	$http.get('/contactlist/' + id).
     		success(function(response) {
@@ -42,7 +41,6 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
     };
 
     $scope.updateContact = function() {
-    	$scope.editBtn = false;
     	$http.put('/contactlist/' + $scope.contact._id, $scope.contact).
 	   		success(function(response) {
 	   			refresh();
