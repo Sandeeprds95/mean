@@ -28,6 +28,7 @@
 							<th>Name</th>
 							<th>Email ID</th>
 							<th>Phone Number</th>
+							<th>Actions</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -35,20 +36,23 @@
 							<td><input class="form-control" type="text" ng-model="contact.name"></td>
 							<td><input class="form-control" type="email" ng-model="contact.email"></td>
 							<td><input class="form-control" type="text" ng-model="contact.number"></td>
+							<td>
+								<button type="button" class="btn btn-success" ng-click="addContact()" ng-disable="AppCtrl.editBtn">Add Contact</button>
+								<button type="button" class="btn btn-primary" ng-click="updateContact()">Update Contact</button>
+								<button type="button" class="btn btn-primary" ng-click="clearField()">Clear</button>
+							</td>
 						</tr>
 						<tr ng-repeat="contact in contactList">
 							<td>{{contact.name}}</td>
 							<td>{{contact.email}}</td>
 							<td>{{contact.number}}</td>
+							<td>
+								<button type="button" class="btn btn-warning" ng-click="editContact(contact._id)">Edit</button>
+								<button type="button" class="btn btn-danger" ng-click="deleteContact(contact._id)">Delete Contact</button>
+							</td>
 						</tr>
 					</tbody>
 				</table>
-				<div class="buttons" style="text-align:center">
-					<button type="button" class="btn btn-success" ng-click="addContact()">Add Contact</button>
-					<button type="button" class="btn btn-primary">List Contact</button>
-					<button type="button" class="btn btn-warning">Edit</button>
-					<!-- <button type="button" class="btn btn-warning">Delete</button> -->
-				</div>
 			</div>
 		</div>
 		<!-- Scripts -->
